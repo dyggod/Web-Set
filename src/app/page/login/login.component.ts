@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
       console.log(data);
       let isSuccess: boolean = true;
       if (isSuccess) {
+        let userRegisterInfo: {} = {
+          userName: this.userName,
+          passWord: this.passWord
+        };
+        localStorage.userRegisterInfo = JSON.stringify(userRegisterInfo);
         this.router.navigate(["/home"])
       } else {
         alert("register false!")
