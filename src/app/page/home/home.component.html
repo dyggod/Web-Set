@@ -8,13 +8,21 @@
         <li>
           <a [routerLink]="['/chatRoom']">聊天室</a>
         </li>
-        <li>
-          <a [routerLink]="['/login']">注册</a>
-        </li>
+
       </ul>
     </div>
   </div>
   <div class="footer">
-
+    <div class="home-notice">
+      <div>
+        notice:
+      </div>
+      <div>
+        解锁所有功能需先注册
+      </div>
+      <div class="to-register" [routerLink]="['/login']">
+        <button>注册</button>
+      </div>
+    </div>
   </div>
 </div>
