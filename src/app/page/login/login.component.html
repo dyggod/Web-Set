@@ -1,0 +1,38 @@
+<p>login works!</p>
+<div id="login">
+  <div class="login-header">
+
+  </div>
+  <div class="login-main">
+    <div class="userName">
+      <div>
+        用户名
+      </div>
+      <div>
+        <input type="text" [(ngModel)]="userName">
+      </div>
+    </div>
+    <div class="passWord">
+      <div>
+        密码
+      </div>
+      <div>
+        <input type="password" [(ngModel)]="passWord">
+      </div>
+    </div>
+    <div class="confirmPassword">
+      <div>
+        确认密码
+      </div>
+      <div>
+        <input type="password" [(ngModel)]="confirmPassWord">
+      </div>
+    </div>
+    <div class="submit">
+      <button (click)="register()">注册</button>
+    </div>
+  </div>
+  <div class="login-footer">
+
+  </div>
+</div>

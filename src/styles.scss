@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  font-family:"webfont" !important;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  /* background-color: rgb(234,237,242); */
+  font-size: 16px !important;
+  /* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif; */
+  color: #4c5e70;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  letter-spacing: 1px;
+}
+a {
+  text-decoration: none;
+}
