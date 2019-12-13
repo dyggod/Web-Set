@@ -13,6 +13,8 @@ import { ButtonModule } from "primeng/button";
 import { EditorModule } from 'primeng/editor';
 import { BlockUIModule } from 'primeng/blockui';
 import { PanelModule } from 'primeng/panel';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+
 // 引入自定义page页面
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +40,8 @@ import { WriteBlogComponent } from './page/write-blog/write-blog.component';
     ButtonModule,
     EditorModule,
     BlockUIModule,
-    PanelModule
+    PanelModule,
+    ScrollPanelModule
   ],
   entryComponents: [
     AppComponent,
