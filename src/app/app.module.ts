@@ -4,20 +4,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {ButtonModule} from "primeng/button";
+// primeng UI组件的引用
+import { ButtonModule } from "primeng/button";
+import { EditorModule } from 'primeng/editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatRoomComponent } from './page/chat-room/chat-room.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
+import { WriteBlogComponent } from './page/write-blog/write-blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatRoomComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    WriteBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,8 @@ import { LoginComponent } from './page/login/login.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    EditorModule
   ],
   entryComponents: [
     AppComponent,

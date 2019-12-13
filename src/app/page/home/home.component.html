@@ -8,7 +8,15 @@
         <li>
           <a [routerLink]="['/chatRoom']">聊天室</a>
         </li>
-
+        <li>
+          <a [routerLink]="['/writeBlog']">写博客</a>
+        </li>
+        <li>
+          <a [routerLink]="['/music']">音乐</a>
+        </li>
+        <li>
+          <a [routerLink]="['/movie']">影视</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -21,7 +29,7 @@
         解锁所有功能需先注册
       </div>
       <div class="to-register" [routerLink]="['/login']">
-        <button>注册</button>
+        <p-button label="注册" ></p-button>
       </div>
     </div>
   </div>
