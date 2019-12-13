@@ -1,0 +1,41 @@
+<div id="home">
+  <div class="header">
+
+  </div>
+  <div class="main">
+    <div class="container">
+      <p-blockUI [target]="pnl" [blocked]="blocked">
+        <i class="fa fa-lock fa-5x" style="position:absolute;top:25%;left:50%"></i>
+      </p-blockUI>
+      <p-panel #pnl [header]="panelHeaderText">
+        <ul>
+          <li>
+            <a [routerLink]="['/chatRoom']">聊天室</a>
+          </li>
+          <li>
+            <a [routerLink]="['/writeBlog']">写博客</a>
+          </li>
+          <li>
+            <a [routerLink]="['/music']">音乐</a>
+          </li>
+          <li>
+            <a [routerLink]="['/movie']">影视</a>
+          </li>
+        </ul>
+      </p-panel>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="home-notice" *ngIf="isShowNotice">
+      <div>
+        notice:
+      </div>
+      <div>
+        解锁所有功能需先注册
+      </div>
+      <div class="to-register" [routerLink]="['/login']">
+        <p-button label="注册" ></p-button>
+      </div>
+    </div>
+  </div>
+</div>
