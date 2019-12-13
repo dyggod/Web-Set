@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CommonStoreService } from '../../service/common-store.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public loginStatus: boolean;
   isShowNotice: boolean = true;
-  constructor() { }
+  constructor(
+    public store: CommonStoreService
+  ) {}
 
   ngOnInit() {
     this.verifyIsRegister();
@@ -19,8 +22,11 @@ export class HomeComponent implements OnInit {
       let userRegisterInfo = JSON.parse(localInfo);
       console.log(userRegisterInfo);
       // TODO: 需自动登录
+      this.store.changeLoaginStatus(true);
+      console.log(this.store.loginStatus);
       this.isShowNotice = false;
     } else {
+      console.log(this.store.loginStatus);
       alert("you should register");
     }
   }

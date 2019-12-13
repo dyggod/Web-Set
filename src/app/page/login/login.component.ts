@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { Router } from '@angular/router';
+import { CommonStoreService } from 'src/app/service/common-store.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   confirmPassWord: string = "";
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    public store: CommonStoreService
   ) { }
   register() {
     console.log(this.userName);
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
           passWord: this.passWord
         };
         localStorage.userRegisterInfo = JSON.stringify(userRegisterInfo);
+        this.store.changeLoaginStatus(true);
         this.router.navigate(["/home"])
       } else {
         alert("register false!")
