@@ -10,7 +10,8 @@ import { CommonStoreService } from './service/common-store.service';
 // primeng UI组件的引用
 import { ButtonModule } from "primeng/button";
 import { EditorModule } from 'primeng/editor';
-
+import { BlockUIModule } from 'primeng/blockui';
+import { PanelModule } from 'primeng/panel';
 // 引入自定义page页面
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +35,9 @@ import { WriteBlogComponent } from './page/write-blog/write-blog.component';
     FormsModule,
     BrowserAnimationsModule,
     ButtonModule,
-    EditorModule
+    EditorModule,
+    BlockUIModule,
+    PanelModule
   ],
   entryComponents: [
     AppComponent,

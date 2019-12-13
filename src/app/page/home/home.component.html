@@ -4,20 +4,25 @@
   </div>
   <div class="main">
     <div class="container">
-      <ul>
-        <li>
-          <a [routerLink]="['/chatRoom']">聊天室</a>
-        </li>
-        <li>
-          <a [routerLink]="['/writeBlog']">写博客</a>
-        </li>
-        <li>
-          <a [routerLink]="['/music']">音乐</a>
-        </li>
-        <li>
-          <a [routerLink]="['/movie']">影视</a>
-        </li>
-      </ul>
+      <p-blockUI [target]="pnl" [blocked]="blocked">
+        <i class="fa fa-lock fa-5x" style="position:absolute;top:25%;left:50%"></i>
+      </p-blockUI>
+      <p-panel #pnl [header]="panelHeaderText">
+        <ul>
+          <li>
+            <a [routerLink]="['/chatRoom']">聊天室</a>
+          </li>
+          <li>
+            <a [routerLink]="['/writeBlog']">写博客</a>
+          </li>
+          <li>
+            <a [routerLink]="['/music']">音乐</a>
+          </li>
+          <li>
+            <a [routerLink]="['/movie']">影视</a>
+          </li>
+        </ul>
+      </p-panel>
     </div>
   </div>
   <div class="footer">

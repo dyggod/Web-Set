@@ -8,6 +8,8 @@ import { CommonStoreService } from '../../service/common-store.service';
 export class HomeComponent implements OnInit {
   public loginStatus: boolean;
   isShowNotice: boolean = true;
+  blocked: boolean = true;
+  panelHeaderText: string = "未注册-功能禁用";
   constructor(
     public store: CommonStoreService
   ) {}
@@ -24,6 +26,8 @@ export class HomeComponent implements OnInit {
       // TODO: 需自动登录
       this.store.changeLoaginStatus(true);
       console.log(this.store.loginStatus);
+      this.blocked = false;
+      this.panelHeaderText = "已开启全部功能";
       this.isShowNotice = false;
     } else {
       console.log(this.store.loginStatus);
