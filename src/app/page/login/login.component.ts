@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { Router } from '@angular/router';
 import { CommonStoreService } from 'src/app/service/common-store.service';
+import { CommonAxiosService } from 'src/app/service/common-axios.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   passWord: string = "";
   confirmPassWord: string = "";
   constructor(
-    private http: HttpClient,
+    private commonService: CommonAxiosService,
     private router: Router,
     public store: CommonStoreService
   ) { }
@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
     alert("register success!");
     //TODO: 换成注册接口
     var url: string = "https://jsonplaceholder.typicode.com/todos?_page=1&_limit=10";
-    this.http.get(url).subscribe((data: any) => {
+    this.commonService.service({
+      url: url,
+      method: "get"
+    })
+    .then(({data}) => {
       console.log(data);
       let isSuccess: boolean = true;
       if (isSuccess) {
