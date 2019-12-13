@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  isShowNotice: boolean = true;
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
     if (isJSON) {
       let userRegisterInfo = JSON.parse(localInfo);
       console.log(userRegisterInfo);
+      // TODO: 需自动登录
+      this.isShowNotice = false;
     } else {
       alert("you should register");
     }
