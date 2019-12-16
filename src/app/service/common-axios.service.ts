@@ -4,8 +4,6 @@ import axios from 'axios';
 @Injectable({
   providedIn: 'root'
 })
-// 基础路径
-var baseUrl = "";
 export class CommonAxiosService {
 
   constructor() { }

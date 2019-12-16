@@ -9,26 +9,20 @@
       <span>3</span>
     </div>
     <div class="messageBox">
-      <p-scrollPanel [style]="{width: '100%', height: '200px'}">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nobis officia ab blanditiis, recusandae voluptate in cupiditate ipsa dolorem, neque dolore omnis ipsum facilis! At repudiandae quo quas numquam labore!
-        Minus, ab veniam? Laborum fugit dolorem quos ipsa sequi animi autem! Numquam, corrupti! Temporibus commodi ipsa eius quos maxime itaque nihil cumque repellat minus non officia, laudantium accusamus autem ex!
-        At quisquam voluptatum tenetur ex distinctio rerum reprehenderit autem, eos velit voluptates facere ab explicabo nihil omnis voluptate laborum reiciendis dolor, aliquam odit ullam repudiandae sequi dicta earum. Tenetur, quae.
-        Eius ipsum vero, eum harum reiciendis ducimus sit, at vel quisquam praesentium omnis, fugit saepe tempore alias minus eos voluptatum molestiae quis culpa blanditiis expedita? Reprehenderit repellat perferendis ad voluptates.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nobis officia ab blanditiis, recusandae voluptate in cupiditate ipsa dolorem, neque dolore omnis ipsum facilis! At repudiandae quo quas numquam labore!
-        Minus, ab veniam? Laborum fugit dolorem quos ipsa sequi animi autem! Numquam, corrupti! Temporibus commodi ipsa eius quos maxime itaque nihil cumque repellat minus non officia, laudantium accusamus autem ex!
-        At quisquam voluptatum tenetur ex distinctio rerum reprehenderit autem, eos velit voluptates facere ab explicabo nihil omnis voluptate laborum reiciendis dolor, aliquam odit ullam repudiandae sequi dicta earum. Tenetur, quae.
-        Eius ipsum vero, eum harum reiciendis ducimus sit, at vel quisquam praesentium omnis, fugit saepe tempore alias minus eos voluptatum molestiae quis culpa blanditiis expedita? Reprehenderit repellat perferendis ad voluptates.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nobis officia ab blanditiis, recusandae voluptate in cupiditate ipsa dolorem, neque dolore omnis ipsum facilis! At repudiandae quo quas numquam labore!
-        Minus, ab veniam? Laborum fugit dolorem quos ipsa sequi animi autem! Numquam, corrupti! Temporibus commodi ipsa eius quos maxime itaque nihil cumque repellat minus non officia, laudantium accusamus autem ex!
-        At quisquam voluptatum tenetur ex distinctio rerum reprehenderit autem, eos velit voluptates facere ab explicabo nihil omnis voluptate laborum reiciendis dolor, aliquam odit ullam repudiandae sequi dicta earum. Tenetur, quae.
-        Eius ipsum vero, eum harum reiciendis ducimus sit, at vel quisquam praesentium omnis, fugit saepe tempore alias minus eos voluptatum molestiae quis culpa blanditiis expedita? Reprehenderit repellat perferendis ad voluptates.
+      <p-scrollPanel id="ps" #pscroll [style]="{width: '100%', height: '200px'}" [scrollTop]="50">
+        <ul style="margin: 0;">
+          <li *ngFor="let item of messageList; let i=index;">
+            <span>{{item.userName}}:</span>
+            <span>{{item.message}}</span>
+          </li>
+        </ul>
       </p-scrollPanel>
     </div>
     <div class="sendBox">
       <div class="">
-
+        <input type="text" pInputText [(ngModel)]="messageOfSend">
+        <button pButton type="button" label="发送" class="ui-button-success" (click)="sendMessage(pscroll)"></button>
       </div>
-      <p-button label="发送"></p-button>
     </div>
   </div>
   <div class="chartRoomFooter">
