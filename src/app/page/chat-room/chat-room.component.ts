@@ -6,17 +6,17 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 export class ChatRoomComponent implements OnInit {
   messageList = [
-    {userName: "游客1", message: "hello"},
-    {userName: "游客2", message: "你好"},
-    {userName: "游客1", message: "hello"},
-    {userName: "游客2", message: "你好"},
-    {userName: "游客1", message: "hello"},
-    {userName: "游客2", message: "你好"},
-    {userName: "游客1", message: "hello"},
-    {userName: "游客2", message: "你好"},
-    {userName: "游客1", message: "hello"},
-    {userName: "游客2", message: "你好"},
-    {userName: "游客1", message: "hello"}
+    {userName: "游客1", userId: "1", message: "hello"},
+    {userName: "游客2", userId: "2", message: "你好"},
+    {userName: "游客1", userId: "3", message: "hello"},
+    {userName: "游客2", userId: "4", message: "你好"},
+    {userName: "游客1", userId: "5", message: "hello"},
+    {userName: "游客2", userId: "6", message: "你好"},
+    {userName: "游客1", userId: "7", message: "hello"},
+    {userName: "游客2", userId: "8", message: "你好"},
+    {userName: "游客1", userId: "9", message: "hello"},
+    {userName: "游客2", userId: "10", message: "你好"},
+    {userName: "游客1", userId: "11", message: "hello"}
   ];
   messageOfSend: string = "";
   count: number = 0;
@@ -39,7 +39,7 @@ export class ChatRoomComponent implements OnInit {
     }
   }
   sendMessage(obj): void {
-    this.messageList.push({userName:"游客9", message: "我是新来的！"});
+    this.messageList.push({userName:"游客9", userId: "12", message: "我是新来的！"});
     var timer = setTimeout(() => {
       var topHeight: number =
       this.el.nativeElement.querySelector("ul.messageContent").offsetHeight - this.messageBoxHeight;
@@ -56,5 +56,8 @@ export class ChatRoomComponent implements OnInit {
   getMessageBoxHeight() {
     var height: number = this.el.nativeElement.querySelector("div.messageBox").offsetHeight;
     return height
+  }
+  showUserInfo() {
+    console.log("展示用户信息");
   }
 }
