@@ -20,11 +20,16 @@ export class ChatRoomComponent implements OnInit {
   ];
   messageOfSend: string = "";
   count: number = 0;
+  messageBoxHeight: number;
   constructor(
     private el: ElementRef
   ) { }
 
   ngOnInit() {
+  }
+  ngAfterViewInit() {
+    this.messageBoxHeight = this.getMessageBoxHeight();
+    this.moveScrollToButtomAtFirst();
   }
   getSocketConnection() {
     if ("WebSocket" in window) {
@@ -34,12 +39,22 @@ export class ChatRoomComponent implements OnInit {
     }
   }
   sendMessage(obj): void {
-    this.messageList.push({userName:"游客9", message: "我是新来的！"})
+    this.messageList.push({userName:"游客9", message: "我是新来的！"});
+    var timer = setTimeout(() => {
+      var topHeight: number =
+      this.el.nativeElement.querySelector("ul.messageContent").offsetHeight - this.messageBoxHeight;
+      obj.scrollTop(topHeight);
+      clearTimeout(timer);
+      timer = null;
+    }, 100);
+  }
+  moveScrollToButtomAtFirst(): void {
     var topHeight: number =
-      this.el.nativeElement.querySelector("ul").offsetHeight - 200;
-    console.log(this.el.nativeElement.querySelector("ul").offsetHeight);
-    console.log(this.messageOfSend);
-    console.log(topHeight);
-    obj.scrollTop(topHeight);
+      this.el.nativeElement.querySelector("ul.messageContent").offsetHeight - this.messageBoxHeight;
+    this.el.nativeElement.querySelector("div.ui-scrollpanel-content").scrollTop = topHeight;
+  }
+  getMessageBoxHeight() {
+    var height: number = this.el.nativeElement.querySelector("div.messageBox").offsetHeight;
+    return height
   }
 }

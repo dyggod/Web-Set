@@ -10,7 +10,7 @@
     </div>
     <div class="messageBox">
       <p-scrollPanel id="ps" #pscroll [style]="{width: '100%', height: '200px'}" [scrollTop]="50">
-        <ul style="margin: 0;">
+        <ul class="messageContent" style="margin: 0;">
           <li *ngFor="let item of messageList; let i=index;">
             <span>{{item.userName}}:</span>
             <span>{{item.message}}</span>
