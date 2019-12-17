@@ -1,31 +1,31 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { CommonStoreService } from '../../service/common-store.service';
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
   styleUrls: ['./chat-room.component.scss']
 })
 export class ChatRoomComponent implements OnInit {
+  ws = null;
   messageList = [
-    {userName: "游客1", userId: "1", message: "hello"},
-    {userName: "游客2", userId: "2", message: "你好"},
-    {userName: "游客1", userId: "3", message: "hello"},
-    {userName: "游客2", userId: "4", message: "你好"},
-    {userName: "游客1", userId: "5", message: "hello"},
-    {userName: "游客2", userId: "6", message: "你好"},
-    {userName: "游客1", userId: "7", message: "hello"},
-    {userName: "游客2", userId: "8", message: "你好"},
-    {userName: "游客1", userId: "9", message: "hello"},
-    {userName: "游客2", userId: "10", message: "你好"},
-    {userName: "游客1", userId: "11", message: "hello"}
+    {userName: "游客1", userId: 1, message: "hello"}
   ];
   messageOfSend: string = "";
   count: number = 0;
   messageBoxHeight: number;
+  userInfo: {} = {
+    userName: "",
+    password: ""
+  };
   constructor(
-    private el: ElementRef
+    private el: ElementRef,
+    private store: CommonStoreService
   ) { }
 
   ngOnInit() {
+    this.userInfo = JSON.parse(localStorage.getItem("userRegisterInfo"));
+    console.log(this.userInfo["userName"]);
+    this.getSocketConnection();
   }
   ngAfterViewInit() {
     this.messageBoxHeight = this.getMessageBoxHeight();
@@ -33,13 +33,37 @@ export class ChatRoomComponent implements OnInit {
   }
   getSocketConnection() {
     if ("WebSocket" in window) {
-      var ws = new WebSocket("");
+      this.ws = new WebSocket("ws://49.232.166.197:8080/WebSet/realcom/" + this.userInfo["userName"]);
+      this.ws.onmessage = function(event) {
+        console.log(event);
+      };
+      this.ws.onclose = this.wsOnClose;
+      this.ws.onopen = this.wsOnOpen;
+      this.ws.onmessage = this.wsOnMesaage();
     } else {
       alert("浏览器不支持实时聊天");
     }
   }
+  wsOnOpen() {
+    console.log("连接成功");
+  }
+  wsOnClose() {
+    console.log("断开连接");
+  }
+  wsOnMesaage() {
+    var that = this;
+    var onmessage = function (event) {
+      console.log(event);
+      that.messageList.push({
+        userName: "游客",
+        userId: 5,
+        message: event.data
+      });
+    }
+    return onmessage
+  }
   sendMessage(obj): void {
-    this.messageList.push({userName:"游客9", userId: "12", message: "我是新来的！"});
+    this.ws.send(this.messageOfSend);
     var timer = setTimeout(() => {
       var topHeight: number =
       this.el.nativeElement.querySelector("ul.messageContent").offsetHeight - this.messageBoxHeight;

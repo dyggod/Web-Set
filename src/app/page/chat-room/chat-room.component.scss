@@ -1,3 +1,48 @@
-div#home{
+div#chartRoom{
   display: flex;
+}
+div.chartRoomMain{
+  width: 500px;
+  height: 800px;
+  margin: auto;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
+  div.userNumber{
+
+  }
+
+  div.messageBox{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    ul{
+     padding: 0;
+     color: #fff;
+     li{
+       margin-top: 0.25rem;
+     }
+     span.userName{
+       background-color: blue;
+     }
+     span.message{
+       background-color: green;
+     }
+    }
+  }
+
+  div.sendBox{
+    div:first-child{
+      width: 85%;
+      input{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    div:last-child{
+      width: 15%;
+      button{
+        width: 100%;
+      }
+    }
+  }
 }

@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonStoreService {
   public loginStatus: boolean = false;
+  public userInfo: {};
   constructor() { }
   changeLoaginStatus(status: boolean) {
     this.loginStatus = status;

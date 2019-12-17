@@ -2,6 +2,7 @@
 *{
   font-family:"webfont" !important;
 }
+$primaryBgColor: #D1EEEE;
 body {
   -webkit-font-smoothing: antialiased;
   /* background-color: rgb(234,237,242); */
@@ -15,6 +16,9 @@ body {
 }
 a {
   text-decoration: none;
+}
+ul {
+  list-style: none;
 }
 .flex{
   display: flex;
