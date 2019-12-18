@@ -21,6 +21,7 @@ import { ChatRoomComponent } from './page/chat-room/chat-room.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
 import { WriteBlogComponent } from './page/write-blog/write-blog.component';
+import { PopOverComponent } from './component/pop-over/pop-over.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WriteBlogComponent } from './page/write-blog/write-blog.component';
     ChatRoomComponent,
     HomeComponent,
     LoginComponent,
-    WriteBlogComponent
+    WriteBlogComponent,
+    PopOverComponent
   ],
   imports: [
     BrowserModule,

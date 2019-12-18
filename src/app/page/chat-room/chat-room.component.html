@@ -10,10 +10,10 @@
     <div class="messageBox">
       <p-scrollPanel id="ps" #pscroll [style]="{width: '100%', height: '600px'}" [scrollTop]="50">
         <ul class="messageContent" style="margin: 0;">
-          <li *ngFor="let item of messageList; let i=index;">
+          <li *ngFor="let item of messageList; let i=index;" class="flex">
             <span class="userName" (click)="showUserInfo()">{{item.userName}}:</span>
             &nbsp;
-            <span class="message">{{item.message}}</span>
+            <app-pop-over>{{item.message}}</app-pop-over>
           </li>
         </ul>
       </p-scrollPanel>
