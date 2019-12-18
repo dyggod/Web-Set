@@ -89,4 +89,7 @@ export class ChatRoomComponent implements OnInit {
   showUserInfo() {
     console.log("展示用户信息");
   }
+  showEmoji() {
+
+  }
 }
