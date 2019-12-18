@@ -1,11 +1,11 @@
 div#popOver{
   span{
-    background-color: #60cc29;
     padding: 5px 8px;
     display: inline-block;
     border-radius: 4px;
     margin:10px 10px 10px 10px;
     position: relative;
+    color: #fff;
   }
   span::after{
     content: '';
@@ -13,12 +13,18 @@ div#popOver{
     position: absolute;
     top: 6px;
   }
+  span.left{
+    background-color: #60cc29;
+  }
+  span.right{
+    background-color: #08aba6;
+  }
   span.left::after{
     border-right: 8px solid #60cc29;
     left: -16px;
   }
   span.right::after{
-    border-left: 8px solid #60cc29;
+    border-left: 8px solid #08aba6;
     right: -16px;
   }
 }
