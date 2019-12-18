@@ -7,24 +7,24 @@ import { CommonStoreService } from '../../service/common-store.service';
 })
 export class ChatRoomComponent implements OnInit {
   ws = null;
-  messageList = [
-    {userName: "游客1", userId: 1, message: "hello"}
-  ];
+  messageList = [];
   messageOfSend: string = "";
   count: number = 0;
   messageBoxHeight: number;
   userInfo: {} = {
-    userName: "",
-    password: ""
+    userName: "123",
+    userId: 5,
+    password: "123"
   };
+  inputIsFocus: boolean = false;
   constructor(
     private el: ElementRef,
     private store: CommonStoreService
   ) { }
 
   ngOnInit() {
-    this.userInfo = JSON.parse(localStorage.getItem("userRegisterInfo"));
-    console.log(this.userInfo["userName"]);
+    // this.userInfo = JSON.parse(localStorage.getItem("userRegisterInfo"));
+    // console.log(this.userInfo["userName"]);
     this.getSocketConnection();
   }
   ngAfterViewInit() {
@@ -34,9 +34,6 @@ export class ChatRoomComponent implements OnInit {
   getSocketConnection() {
     if ("WebSocket" in window) {
       this.ws = new WebSocket("ws://49.232.166.197:8080/WebSet/realcom/" + this.userInfo["userName"]);
-      this.ws.onmessage = function(event) {
-        console.log(event);
-      };
       this.ws.onclose = this.wsOnClose;
       this.ws.onopen = this.wsOnOpen;
       this.ws.onmessage = this.wsOnMesaage();
@@ -53,11 +50,18 @@ export class ChatRoomComponent implements OnInit {
   wsOnMesaage() {
     var that = this;
     var onmessage = function (event) {
-      console.log(event);
+      event.userId = 6;
+      var direction: boolean;
+      if (event.userId == that.userInfo["userId"]) {
+        direction = false;
+      } else {
+        direction = true;
+      }
       that.messageList.push({
         userName: "游客",
         userId: 5,
-        message: event.data
+        message: event.data,
+        direction: direction
       });
     }
     return onmessage
@@ -71,6 +75,7 @@ export class ChatRoomComponent implements OnInit {
       clearTimeout(timer);
       timer = null;
     }, 100);
+    this.messageOfSend = "";
   }
   moveScrollToButtomAtFirst(): void {
     var topHeight: number =

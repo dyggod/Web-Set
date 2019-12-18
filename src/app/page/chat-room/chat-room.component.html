@@ -1,33 +1,37 @@
-<div id="chartRoom">
-  <div class="chartRoomHeader">
-
-  </div>
-  <div class="chartRoomMain flex">
+<div id="chartRoom" class="flex-column">
+  <div class="chatRoomHeader text-vertical-center">
     <div class="uesrNumber">
       <span>当前在线人数：</span>
       <span>3</span>
     </div>
+  </div>
+  <div class="chatRoomMain flex">
     <div class="messageBox">
       <p-scrollPanel id="ps" #pscroll [style]="{width: '100%', height: '600px'}" [scrollTop]="50">
         <ul class="messageContent" style="margin: 0;">
-          <li *ngFor="let item of messageList; let i=index;" class="flex">
-            <span class="userName" (click)="showUserInfo()">{{item.userName}}:</span>
-            &nbsp;
-            <app-pop-over>{{item.message}}</app-pop-over>
+          <li *ngFor="let item of messageList; let i=index;" >
+            <div [ngClass]="{'flex':true,'reverse':!item.direction}">
+              <span class="userName" (click)="showUserInfo()">{{item.userName}}</span>
+              <div style="width: 1rem;"></div>
+              <app-pop-over [direction]="item.direction">{{item.message}}</app-pop-over>
+            </div>
           </li>
         </ul>
       </p-scrollPanel>
     </div>
     <div class="sendBox flex">
       <div>
-        <input type="text" pInputText [(ngModel)]="messageOfSend">
+        <input type="text" pInputText
+          [(ngModel)]="messageOfSend"
+          (keydown.enter)="sendMessage(pscroll)"
+        >
       </div>
       <div>
         <button pButton type="button" label="发送" class="ui-button-success" (click)="sendMessage(pscroll)"></button>
       </div>
     </div>
   </div>
-  <div class="chartRoomFooter">
+  <div class="chatRoomFooter">
 
   </div>
 </div>

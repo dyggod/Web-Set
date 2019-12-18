@@ -4,15 +4,21 @@ div#popOver{
     padding: 5px 8px;
     display: inline-block;
     border-radius: 4px;
-    margin:10px 0 10px 10px;
+    margin:10px 10px 10px 10px;
     position: relative;
   }
   span::after{
     content: '';
     border: 8px solid #ffffff00;
-    border-right: 8px solid #60cc29;
     position: absolute;
     top: 6px;
+  }
+  span.left::after{
+    border-right: 8px solid #60cc29;
     left: -16px;
+  }
+  span.right::after{
+    border-left: 8px solid #60cc29;
+    right: -16px;
   }
 }

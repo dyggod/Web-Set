@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pop-over',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pop-over.component.scss']
 })
 export class PopOverComponent implements OnInit {
-
+  @Input() direction: boolean = true;
   constructor() { }
 
   ngOnInit() {

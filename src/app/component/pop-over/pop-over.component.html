@@ -1,5 +1,5 @@
 <div id="popOver">
-  <span>
+  <span [ngClass]="{'left':direction, 'right':!direction}">
     <ng-content></ng-content>
   </span>
 </div>
