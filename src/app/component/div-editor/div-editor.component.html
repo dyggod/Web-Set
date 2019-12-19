@@ -1,0 +1,11 @@
+<div
+  id="editorBox"
+  class="flex-vertical-center"
+  contenteditable="true"
+  [innerHtml]="innerText"
+  (blur)="mouseBlur()"
+  (focus)="mouseFocus()"
+  (input)="changeText($event)"
+>
+
+</div>

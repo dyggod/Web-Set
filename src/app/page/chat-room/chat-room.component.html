@@ -13,7 +13,9 @@
             <div [ngClass]="{'flex':true,'reverse':!item.direction}">
               <span class="userName" (click)="showUserInfo()">{{item.userName}}</span>
               <div style="width: 1rem;"></div>
-              <app-pop-over [direction]="item.direction">{{item.message}}</app-pop-over>
+              <app-pop-over [direction]="item.direction">
+                <span [innerHtml]="item.message"></span>
+              </app-pop-over>
             </div>
           </li>
         </ul>
@@ -21,10 +23,17 @@
     </div>
     <div class="sendBox flex">
       <div>
-        <input type="text" pInputText
+        <!-- <input type="text" pInputText
           [(ngModel)]="messageOfSend"
           (keydown.enter)="sendMessage(pscroll)"
+        > -->
+        <!-- <div class="input"
+          contenteditable="true"
+          [innerHtml]="messageOfSend"
+          (input)="input($event)"
         >
+        </div> -->
+      <app-div-editor #divEditor [innerText]="messageOfSend" (fromChild)="changeMessageOfSend($event)"></app-div-editor>
       </div>
       <div>
         <button pButton label="表情" (click)="showEmoji()"></button>
@@ -35,8 +44,10 @@
     </div>
   </div>
   <div class="chatRoomFooter">
-    <div class="emojiBox">
-
+    <div class="emojiBox" *ngIf="isShowEmojiBox">
+      <span *ngFor="let item of emojiList">
+        <img [src]="item.src" [title]="item.title" alt="" (click)="selectEmoji($event)">
+      </span>
     </div>
   </div>
 </div>

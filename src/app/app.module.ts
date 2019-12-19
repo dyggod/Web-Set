@@ -14,6 +14,11 @@ import { EditorModule } from 'primeng/editor';
 import { BlockUIModule } from 'primeng/blockui';
 import { PanelModule } from 'primeng/panel';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+
+// 引入自定义组件
+import { PopOverComponent } from './component/pop-over/pop-over.component';
+import { DivEditorComponent } from './component/div-editor/div-editor.component';
+
 // 引入自定义page页面
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +26,6 @@ import { ChatRoomComponent } from './page/chat-room/chat-room.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
 import { WriteBlogComponent } from './page/write-blog/write-blog.component';
-import { PopOverComponent } from './component/pop-over/pop-over.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { PopOverComponent } from './component/pop-over/pop-over.component';
     HomeComponent,
     LoginComponent,
     WriteBlogComponent,
-    PopOverComponent
+    PopOverComponent,
+    DivEditorComponent
   ],
   imports: [
     BrowserModule,
