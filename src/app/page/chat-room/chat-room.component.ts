@@ -116,13 +116,10 @@ export class ChatRoomComponent implements OnInit {
     }
   }
   selectEmoji(event): void {
-    console.log(event.target.nodeName, event.target.title);
-    // this.messageOfSend = this.messageOfSend + "[emoji:" + event.target.title + "]";
     this.messageOfSend = this.messageOfSend + "<img src='../../../assets/img/emoji/"+ event.target.title +".gif'>"
     console.log(this.messageOfSend);
   }
   input(event) {
-    console.log(event.target.innerHTML);
     this.messageOfSend = event.target.innerHTML;
   }
   encodeMessage(str:string) {
@@ -134,24 +131,6 @@ export class ChatRoomComponent implements OnInit {
       data = data.replace(match[0], "<img src='../../../assets/img/emoji/" +  emojiIndex +".gif'>");
     }
     return data
-  }
-  keepLastIndex(obj) {
-    console.log(obj)
-    console.log(window.getSelection)
-    // console.log(document.selection)
-    if (window.getSelection) { //ie11 10 9 ff safari
-        obj.focus(); //解决ff不获取焦点无法定位问题
-        var range = window.getSelection(); //创建range
-        range.selectAllChildren(obj); //range 选择obj下所有子内容
-        range.collapseToEnd(); //光标移至最后
-    }
-    // else if (document.selection) { //ie10 9 8 7 6 5
-    //     var range = document.selection.createRange(); //创建选择对象
-    //     //var range = document.body.createTextRange();
-    //     range.moveToElementText(obj); //range定位到obj
-    //     range.collapse(false); //光标移至最后
-    //     range.select();
-    // }
   }
   changeMessageOfSend(data) {
     this.messageOfSend = data;

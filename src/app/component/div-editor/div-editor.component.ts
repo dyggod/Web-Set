@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class DivEditorComponent implements OnInit {
   @Input() innerText: string = "";
   @Output() fromChild = new EventEmitter();
+  @Output() fromChild2 = new EventEmitter();
   value: string = "";
   isFocus:boolean = false;
   constructor() { }
@@ -21,9 +22,20 @@ export class DivEditorComponent implements OnInit {
     this.value = this.innerText;
   }
   changeText(event) {
-    this.value = event.target.innerHTML;
+    var html = event.target.innerHTML.replace(/<div>/g, "<br/>");
+    html = html.replace(/<\/div>/g, "");
+    html = html.replace(/<br>/g, "");
+    this.value = html;
   }
   clearValue() {
     this.value = "";
+  }
+  keydown(event) {
+    if (event.keyCode == 13 && event.ctrlKey) {
+      event.target.blur();
+      this.fromChild2.emit();
+      event.target.innerHTML = "";
+      event.target.focus();
+    }
   }
 }

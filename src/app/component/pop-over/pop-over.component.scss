@@ -1,11 +1,13 @@
 div#popOver{
   span{
+    max-width: 350px;
     padding: 5px 8px;
     display: inline-block;
     border-radius: 4px;
     margin:10px 10px 10px 10px;
     position: relative;
     color: #fff;
+    word-break:break-all;
   }
   span::after{
     content: '';

@@ -33,7 +33,12 @@
           (input)="input($event)"
         >
         </div> -->
-      <app-div-editor #divEditor [innerText]="messageOfSend" (fromChild)="changeMessageOfSend($event)"></app-div-editor>
+      <app-div-editor #divEditor
+        [innerText]="messageOfSend"
+        (fromChild)="changeMessageOfSend($event)"
+        (fromChild2)="sendMessage(pscroll)"
+      >
+      </app-div-editor>
       </div>
       <div>
         <button pButton label="表情" (click)="showEmoji()"></button>
