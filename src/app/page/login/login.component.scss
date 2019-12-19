@@ -1,0 +1,20 @@
+div#register{
+  justify-content: space-around;
+  background-color: #f7fdff;
+}
+div.register-left{
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div.login-header{
+  height: 10%;
+}
+div.login-main{
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+

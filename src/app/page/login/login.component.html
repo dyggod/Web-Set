@@ -1,37 +1,48 @@
-<p>login works!</p>
-<div id="login">
-  <div class="login-header">
+<div id="register" class="flex">
+  <div class="register-left">
+    <div class="login-header">
+      <div>
+        注册
+      </div>
+    </div>
+    <div class="login-main flex">
+      <div class="userName">
+        <div>
+          <span class="ui-float-label">
+            <input id="float-input" type="text" [(ngModel)]="userName" size="30" pInputText>
+            <label for="float-input">用户名</label>
+          </span>
+        </div>
+      </div>
+      <div class="passWord">
+        <div>
+          <span class="ui-float-label">
+            <input id="float-input" type="password" [(ngModel)]="passWord" size="30" pInputText>
+            <label for="float-input">密码</label>
+          </span>
+        </div>
+      </div>
+      <div class="confirmPassword">
+        <div>
+          <span class="ui-float-label">
+            <input id="float-input" type="password" [(ngModel)]="confirmPassWord" size="30" pInputText>
+            <label for="float-input">确认密码</label>
+          </span>
+        </div>
+      </div>
+      <div class="submit">
+        <div class="register-button" (click)="register()">
+          Create Acount
+        </div>
+      </div>
+    </div>
+    <div class="login-footer">
+    </div>
+  </div>
+  <div class="register-right text-vertical-center">
+    <div>
+      <img src="../../../assets/img/bg/login.png" alt="">
+    </div>
 
-  </div>
-  <div class="login-main">
-    <div class="userName">
-      <div>
-        用户名
-      </div>
-      <div>
-        <input type="text" [(ngModel)]="userName">
-      </div>
-    </div>
-    <div class="passWord">
-      <div>
-        密码
-      </div>
-      <div>
-        <input type="password" [(ngModel)]="passWord">
-      </div>
-    </div>
-    <div class="confirmPassword">
-      <div>
-        确认密码
-      </div>
-      <div>
-        <input type="password" [(ngModel)]="confirmPassWord">
-      </div>
-    </div>
-    <div class="submit">
-      <button (click)="register()">注册</button>
-    </div>
-  </div>
-  <div class="login-footer">
   </div>
 </div>
