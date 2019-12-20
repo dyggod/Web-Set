@@ -23,6 +23,10 @@ ul {
 .flex{
   display: flex;
 }
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
 .flex-column{
   display: flex;
   flex-direction: column;

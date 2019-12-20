@@ -1,6 +1,25 @@
 div#register{
-  justify-content: space-around;
-  background-color: #f7fdff;
+  flex-direction: column;
+  background-color: #fff;
+}
+div.register-top{
+  height: 3rem;
+  line-height: 3rem;
+  font-weight: bold;
+  border-bottom: 2px solid #eeeeee;
+  justify-content: space-between;
+  div:first-child{
+    width: 20%;
+    span{
+      color: #19c4ea;
+    }
+  }
+  div:last-child{
+    width: 40%;
+    span{
+      color: #19c4ea;
+    }
+  }
 }
 div.register-left{
   height: 500px;
@@ -8,13 +27,34 @@ div.register-left{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-right: 2rem;
 }
 div.login-header{
   height: 10%;
 }
 div.login-main{
-  height: 50%;
+  height: 60%;
   flex-direction: column;
   justify-content: space-between;
+  input{
+    width: 25rem;
+    height: 2.5rem;
+  }
+  div.register-button{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 3rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: #19c4ea;
+    line-height: 3rem;
+  }
 }
-
+div.login-footer{
+  height: 3rem;
+  font-size: 12px;
+  line-height: 3rem;
+}
+div.register-right{
+  margin-left: 2rem;
+}
