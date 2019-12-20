@@ -21,25 +21,53 @@
         <div class="userName">
           <div>
             <span class="ui-float-label">
-              <input id="float-input1" type="text" [(ngModel)]="userName" size="30" pInputText>
-              <label for="float-input">Your userName</label>
+              <input id="float-input1" type="text" [(ngModel)]="userRegisterInfo.userName" size="30" pInputText>
+              <label for="float-input1">Your userName</label>
             </span>
+          </div>
+          <div class="wran">
+            <div class="text-vertical-center" *ngIf="wranInfoList.userName">
+              userName is empty!
+            </div>
+          </div>
+        </div>
+        <div class="userName">
+          <div>
+            <span class="ui-float-label">
+              <input id="float-input2" type="text" [(ngModel)]="userRegisterInfo.userNickname" size="30" pInputText>
+              <label for="float-input2">Your nickname</label>
+            </span>
+          </div>
+          <div class="wran">
+            <div class="text-vertical-center" *ngIf="wranInfoList.userNickname">
+              userNickname is empty!
+            </div>
           </div>
         </div>
         <div class="passWord">
           <div>
             <span class="ui-float-label">
-              <input id="float-input2" type="text" [(ngModel)]="userEmail" size="30" pInputText>
-              <label for="float-input">Your email</label>
+              <input id="float-input3" type="text" [(ngModel)]="userRegisterInfo.userEmail" size="30" pInputText>
+              <label for="float-input3">Your email</label>
             </span>
+          </div>
+          <div class="wran">
+            <div class="text-vertical-center" *ngIf="wranInfoList.userEmail">
+              userEmail is empty!
+            </div>
           </div>
         </div>
         <div class="confirmPassword">
           <div>
             <span class="ui-float-label">
-              <input id="float-input3" type="password" [(ngModel)]="passWord" size="30" pInputText pPassword>
-              <label for="float-input">Your password</label>
+              <input id="float-input4" type="password" [(ngModel)]="userRegisterInfo.password" size="30" pInputText pPassword>
+              <label for="float-input4">Your password</label>
             </span>
+          </div>
+          <div class="wran">
+            <div class="text-vertical-center" *ngIf="wranInfoList.password">
+              password is empty!
+            </div>
           </div>
         </div>
         <div class="submit flex-center">

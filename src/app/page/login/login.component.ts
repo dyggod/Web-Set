@@ -9,57 +9,68 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  userName: string = "";
-  userEmail: string = "";
-  passWord: string = "";
+  userRegisterInfo: {} = {
+    userName: "",
+    userNickname: "",
+    userEmail: "",
+    password: ""
+  };
+  wranInfoList: {} = {
+    userName: false,
+    userNickname: "",
+    userEmail: "",
+    password: ""
+  };
   constructor(
     private commonService: CommonAxiosService,
     private router: Router,
     public store: CommonStoreService,
     private http: HttpClient
   ) { }
-  register() {
-    console.log(this.userName);
-    console.log(this.userEmail);
-    console.log(this.passWord);
-    alert("register success!");
-    //TODO: 换成注册接口
-    var url: string = this.commonService.baseUrl + "/WebSet/registered";
-    this.commonService.service({
-      url: url,
-      method: "POST",
-      data: {
-        account: "123",
-        password: "123",
-        nameMail: "123"
-      }
-    })
-    .then(({data}) => {
-      console.log(data);
-      let isSuccess: boolean = true;
-      if (isSuccess) {
-        let userRegisterInfo: {} = {
-          userName: this.userName,
-          passWord: this.passWord
-        };
-        localStorage.userRegisterInfo = JSON.stringify(userRegisterInfo);
-        this.store.changeLoaginStatus(true);
-        this.router.navigate(["/home"])
-      } else {
-        alert("register false!")
-      }
-    })
-    console.log(this.commonService.baseUrl);
-    // var data: {} ={
-    //   account: "123",
-    //   password: "123",
-    //   nameMail: "123"
-    // };
-    // this.http.post(url, data).subscribe(data => {
-    //   console.log(data);
-    // })
-  }
   ngOnInit() {
 
+  }
+  register() {
+    this.verifyEmptyInput();
+    // var url: string = this.commonService.baseUrl + "/WebSet/registered";
+    // this.commonService.service({
+    //   url: url,
+    //   method: "POST",
+    //   data: {
+    //     account: this.userRegisterInfo["uesrName"],
+    //     password: this.userRegisterInfo["password"],
+    //     name: this.userRegisterInfo["userNickname"],
+    //     mail: this.userRegisterInfo["userEmail"]
+    //   }
+    // })
+    // .then(({data}) => {
+    //   console.log(data);
+    //   let isSuccess: boolean = data.isSuccess;
+    //   if (isSuccess) {
+    //     let userRegisterInfo: {} = {
+    //       account: this.userRegisterInfo["uesrName"],
+    //       password: this.userRegisterInfo["password"],
+    //     };
+    //     localStorage.userRegisterInfo = JSON.stringify(userRegisterInfo);
+    //     localStorage.webset_token = data.data;
+    //     this.store.changeLoaginStatus(true);
+    //     this.router.navigate(["/home"])
+    //   } else {
+    //     alert("register false!")
+    //   }
+    // })
+    // console.log(this.commonService.baseUrl);
+  }
+  verifyEmptyInput() {
+    console.log(this.userRegisterInfo);
+    for (let key2 in this.wranInfoList) {
+      this.wranInfoList[key2] = false;
+    }
+    for (let key in this.userRegisterInfo) {
+      if (this.userRegisterInfo[key] === "") {
+        this.wranInfoList[key] = true;
+        return
+      }
+    }
   }
 }
