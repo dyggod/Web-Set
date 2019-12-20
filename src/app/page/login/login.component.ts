@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonStoreService } from 'src/app/service/common-store.service';
 import { CommonAxiosService } from 'src/app/service/common-axios.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,23 +10,29 @@ import { CommonAxiosService } from 'src/app/service/common-axios.service';
 })
 export class LoginComponent implements OnInit {
   userName: string = "";
+  userEmail: string = "";
   passWord: string = "";
-  confirmPassWord: string = "";
   constructor(
     private commonService: CommonAxiosService,
     private router: Router,
-    public store: CommonStoreService
+    public store: CommonStoreService,
+    private http: HttpClient
   ) { }
   register() {
     console.log(this.userName);
+    console.log(this.userEmail);
     console.log(this.passWord);
-    console.log(this.confirmPassWord);
     alert("register success!");
     //TODO: 换成注册接口
-    var url: string = "https://jsonplaceholder.typicode.com/todos?_page=1&_limit=10";
+    var url: string = this.commonService.baseUrl + "/WebSet/registered";
     this.commonService.service({
       url: url,
-      method: "get"
+      method: "POST",
+      data: {
+        account: "123",
+        password: "123",
+        nameMail: "123"
+      }
     })
     .then(({data}) => {
       console.log(data);
@@ -42,6 +49,15 @@ export class LoginComponent implements OnInit {
         alert("register false!")
       }
     })
+    console.log(this.commonService.baseUrl);
+    // var data: {} ={
+    //   account: "123",
+    //   password: "123",
+    //   nameMail: "123"
+    // };
+    // this.http.post(url, data).subscribe(data => {
+    //   console.log(data);
+    // })
   }
   ngOnInit() {
 

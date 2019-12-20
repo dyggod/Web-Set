@@ -15,7 +15,7 @@ import { BlockUIModule } from 'primeng/blockui';
 import { PanelModule } from 'primeng/panel';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { PasswordModule } from 'primeng/password';
 // 引入自定义组件
 import { PopOverComponent } from './component/pop-over/pop-over.component';
 import { DivEditorComponent } from './component/div-editor/div-editor.component';
@@ -49,7 +49,8 @@ import { WriteBlogComponent } from './page/write-blog/write-blog.component';
     BlockUIModule,
     PanelModule,
     ScrollPanelModule,
-    InputTextModule
+    InputTextModule,
+    PasswordModule
   ],
   entryComponents: [
     AppComponent,
