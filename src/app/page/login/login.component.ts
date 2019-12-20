@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
             account: this.userRegisterInfo["uesrName"],
             password: this.userRegisterInfo["password"],
           };
-          localStorage.userRegisterInfo = JSON.stringify(userRegisterInfo);
+          localStorage.userRegisterInfo = JSON.stringify(this.userRegisterInfo);
           localStorage.webset_token = data.data;
           this.store.changeLoaginStatus(true);
           this.router.navigate(["/home"])

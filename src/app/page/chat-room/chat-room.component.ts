@@ -16,7 +16,7 @@ export class ChatRoomComponent implements OnInit {
   count: number = 0;
   messageBoxHeight: number;
   userInfo: {} = {
-    userName: "123",
+    userName: "dyg_test2",
     userId: 5,
     password: "123"
   };
@@ -39,8 +39,9 @@ export class ChatRoomComponent implements OnInit {
     this.moveScrollToButtomAtFirst();
   }
   getSocketConnection() {
+    var token = localStorage.webset_token;
     if ("WebSocket" in window) {
-      this.ws = new WebSocket("ws://49.232.166.197:8080/WebSet/realcom/" + this.userInfo["userName"]);
+      this.ws = new WebSocket("ws://49.232.166.197:8080/WebSet/realcom/" + token);
       this.ws.onclose = this.wsOnClose;
       this.ws.onopen = this.wsOnOpen;
       this.ws.onmessage = this.wsOnMesaage();
