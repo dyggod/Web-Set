@@ -4,11 +4,11 @@ import { CommonStoreService } from 'src/app/service/common-store.service';
 import { CommonAxiosService } from 'src/app/service/common-axios.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-reigster',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   userRegisterInfo: {} = {
     userName: "",
     userNickname: "",

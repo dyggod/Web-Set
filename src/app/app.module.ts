@@ -25,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatRoomComponent } from './page/chat-room/chat-room.component';
 import { HomeComponent } from './page/home/home.component';
-import { LoginComponent } from './page/login/login.component';
+import { RegisterComponent } from './page/register/register.component';
 import { WriteBlogComponent } from './page/write-blog/write-blog.component';
 
 @NgModule({
@@ -33,7 +33,7 @@ import { WriteBlogComponent } from './page/write-blog/write-blog.component';
     AppComponent,
     ChatRoomComponent,
     HomeComponent,
-    LoginComponent,
+    RegisterComponent,
     WriteBlogComponent,
     PopOverComponent,
     DivEditorComponent
