@@ -41,7 +41,7 @@ export class ChatRoomComponent implements OnInit {
   getSocketConnection() {
     var token = localStorage.webset_token;
     if ("WebSocket" in window) {
-      this.ws = new WebSocket("ws://49.232.166.197:8080/WebSet/realcom/" + token);
+      this.ws = new WebSocket("ws://49.232.166.197:8080/WebSet/WebSocket/" + token);
       this.ws.onclose = this.wsOnClose;
       this.ws.onopen = this.wsOnOpen;
       this.ws.onmessage = this.wsOnMesaage();
