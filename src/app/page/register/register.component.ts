@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonStoreService } from 'src/app/service/common-store.service';
 import { CommonAxiosService } from 'src/app/service/common-axios.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-reigster',
   templateUrl: './register.component.html',
@@ -17,15 +16,14 @@ export class RegisterComponent implements OnInit {
   };
   wranInfoList: {} = {
     userName: false,
-    userNickname: "",
-    userEmail: "",
-    password: ""
+    userNickname: false,
+    userEmail: false,
+    password: false
   };
   constructor(
     private commonService: CommonAxiosService,
     private router: Router,
-    public store: CommonStoreService,
-    private http: HttpClient
+    public store: CommonStoreService
   ) { }
   ngOnInit() {
 
@@ -53,7 +51,7 @@ export class RegisterComponent implements OnInit {
             account: this.userRegisterInfo["uesrName"],
             password: this.userRegisterInfo["password"],
           };
-          localStorage.userRegisterInfo = JSON.stringify(this.userRegisterInfo);
+          localStorage.userRegisterInfo = JSON.stringify(userRegisterInfo);
           localStorage.webset_token = data.data;
           this.store.changeLoaginStatus(true);
           this.router.navigate(["/home"])
