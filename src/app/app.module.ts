@@ -27,6 +27,7 @@ import { ChatRoomComponent } from './page/chat-room/chat-room.component';
 import { HomeComponent } from './page/home/home.component';
 import { RegisterComponent } from './page/register/register.component';
 import { WriteBlogComponent } from './page/write-blog/write-blog.component';
+import { LoginComponent } from './page/login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WriteBlogComponent } from './page/write-blog/write-blog.component';
     RegisterComponent,
     WriteBlogComponent,
     PopOverComponent,
-    DivEditorComponent
+    DivEditorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
